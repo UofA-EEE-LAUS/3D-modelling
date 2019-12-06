@@ -45,9 +45,9 @@ if (clientID>-1)
     %[returnCode]=vrep.simxSetJointTargetVelocity(clientID,MOTOR_X,TARGET_V,vrep.simx_opmode_blocking);
     
     %setting motor speeds for straight line (units in rad/s)
-    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_0,5,vrep.simx_opmode_oneshot_wait);
-    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_1,5,vrep.simx_opmode_oneshot_wait);
-    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_2,5,vrep.simx_opmode_oneshot_wait);    
+    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_0,1,vrep.simx_opmode_oneshot_wait);
+    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_1,1,vrep.simx_opmode_oneshot_wait);
+    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_2,1,vrep.simx_opmode_oneshot_wait);    
     
     %read laser sensor
     [returnCode]=vrep.simxReadProximitySensor(clientID,laser_sensor,vrep.simx_opmode_oneshot_wait);
@@ -55,7 +55,7 @@ if (clientID>-1)
     
     %read orientation
     [returnCode] = vrep.simxGetObjectOrientation(clientID,laser_sensor,-1,vrep.simx_opmode_streaming);
-    [returnCode, quaternions] = vrep.simxGetObjectOrientation(clientID,laser_sensor,-1,vrep.simx_opmode_buffer);
+    [returnCode, orientations] = vrep.simxGetObjectOrientation(clientID,laser_sensor,-1,vrep.simx_opmode_buffer);
 
 
     
@@ -70,7 +70,7 @@ theta = 0;
 dist = 0;
 
 figure
-plotGraph = polarplot(theta,dist)  % every AnalogRead needs to be on its own Plotgraph
+plotGraph = polarscatter(theta,dist)  % every AnalogRead needs to be on its own Plotgraph
 
 thetalim([-180,180])
 
@@ -78,34 +78,30 @@ hold on                            %hold on makes sure all of the channels are p
 tic
 while ishandle(plotGraph) %Loop when Plot is Active will run until plot is closed
          [returnCode, detectionState, detectedPoint,~,~] = vrep.simxReadProximitySensor(clientID, laser_sensor, vrep.simx_opmode_buffer);% measurement refresh
-         [returnCode, orientations] = vrep.simxGetObjectOrientation(clientID,laser_sensor,-1,vrep.simx_opmode_buffer);
          dist_sample = norm(detectedPoint); %distance data from laser sensor
          
-         if dist_sample<0.001
-            dist_sample = 4;
-         end
-         
-         if (orientations(1) >= 0)
-            theta_sample = orientations(2);
-         else
-             if(orientations(1) < 0)
-                 theta_sample = (pi/2-orientations(2))+pi/2;
-             elseif(orientations(2) < 0)
-                 theta_sample = (pi/2-orientations(2))-pi/2;
-             end
-         end
-         
-         count = count + 1;  
-         
-         theta(count) = theta_sample;    
-         dist(count) = dist_sample;
-         %This is the magic code 
-         %Using plot will slow down the sampling time.. At times to over 20
-         %seconds per sample!
-         set(plotGraph,'XData',theta,'YData',dist);
-         %Update the graph
-         refreshdata;
-         pause(0.01);
+         %ignore distance values below certain level
+         if (dist_sample>0.001)
+                [returnCode, orientations] = vrep.simxGetObjectOrientation(clientID,laser_sensor,-1,vrep.simx_opmode_buffer);
+                if (orientations(1) >= 0)
+                    theta_sample = orientations(2);
+                else
+                    if(orientations(1) < 0)
+                        theta_sample = (pi/2-orientations(2))+pi/2;
+                    elseif(orientations(2) < 0)
+                        theta_sample = (pi/2-orientations(2))-pi/2;
+                    end
+                end
+
+             count = count + 1;  
+
+             theta(count) = theta_sample;    
+             dist(count) = dist_sample;
+             set(plotGraph,'XData',theta,'YData',dist);
+             %Update graph
+             refreshdata;
+             pause(0.01);
+         end       
   end
     
     %destroy connection to v-rep simulation
