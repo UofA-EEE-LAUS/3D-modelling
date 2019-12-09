@@ -5,17 +5,25 @@
 </p>
 
 # 3D-modelling
-***University of Adelaide Summer Research Internship 2019***\
 <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/University-of-Adelaide-Logo.svg/220px-University-of-Adelaide-Logo.svg.png" alt="uni logo">
+
+***University of Adelaide Summer Research Internship 2019***
 
 
 ## About
 This repository is the work of the 2019 3D Modelling team.\
 We are developing the simulation and testing environment for the University of Adelaide Summer Research Internship.\
-For more detailed information, please see each model domain in the\
-Wiki: https://github.com/UofA-EEE-LAUS/3D-modelling/wiki
+For more detailed information, please see each model domain in the [Wiki](https://github.com/UofA-EEE-LAUS/3D-modelling/wiki)
 
-## Installation 
+## Navigation
+The 3D modelling project component has been broken into three parts.
+* [CrazyFlie](https://github.com/UofA-EEE-LAUS/3D-modelling/tree/master/Rover)
+* [RobotArm](https://github.com/UofA-EEE-LAUS/3D-modelling/tree/master/Rover)
+* [Rover](https://github.com/UofA-EEE-LAUS/3D-modelling/tree/master/Rover)
+
+each part will have instructions outlined in their respective [Wiki](https://github.com/UofA-EEE-LAUS/3D-modelling/wiki) pages.
+
+## Installation
 ### Virtual Robot Experimentation Platform (V-REP)
 This project uses V-REP release 3.6.2, an open source robotics prototyping and simulation software package.\
 As of 26/11/2019, V-REP has been superseeded by CopelliaSim.\
@@ -26,24 +34,3 @@ Available for free at http://www.coppeliarobotics.com/
 For the RemoteAPI to V-REP, this project has chosen MATLAB.\
 The project is currently using release 2019a, however 2019b should be used soon.\
 Available at: https://mathworks.com/products/matlab.html
-
-## Instructions
-### RemoteAPI
-**V-REP**\
-In V-REP, ensure that the line:  
-`
-simRemoteApi.start(19999)
-`
-is inside a non-threaded child script, under `sysCall_init()`  
-(this runs once and starts the internal server for MATLAB to connect to)
-
-**MATLAB**\
-Ensure the files inside of  
-```
-C:\Program Files\V-REP3\V-REP_PRO_EDU\programming\remoteApiBindings\matlab\matlab
-C:\Program Files\V-REP3\V-REP_PRO_EDU\programming\remoteApiBindings\lib\lib\Windows\64Bit
-```
-are copied into the current MATLAB workspace.
-
-For more information on API functions, please see:\
-http://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsMatlab.htm
