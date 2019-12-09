@@ -1,10 +1,14 @@
-# 3D-modelling
-University of Adelaide Summer Research Internship 2019
 <p>
 <img src="https://img.shields.io/github/repo-size/UofA-EEE-LAUS/3D-modelling" alt="repo size">
 <img src="https://img.shields.io/github/languages/top/UofA-EEE-LAUS/3D-modelling" alt="code language">
-<img src="https://img.shields.io/badge/platform-Win10%201809-blue" alt="code language">
+<img src="https://img.shields.io/badge/platform-Win10%201809-blue" alt="platform">
 </p>
+
+# 3D-modelling
+University of Adelaide Summer Research Internship 2019
+<br>
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/University-of-Adelaide-Logo.svg/220px-University-of-Adelaide-Logo.svg.png" alt="uni logo">
+
 
 ## About
 This repository is the work of the 2019 3D Modelling team.
@@ -25,4 +29,3 @@ Available for free at http://www.coppeliarobotics.com/
 For the RemoteAPI to V-REP, this project has chosen MATLAB. 
 The project is currently using release 2019a, however 2019b should be used soon.
 Available at: https://mathworks.com/products/matlab.html
-
