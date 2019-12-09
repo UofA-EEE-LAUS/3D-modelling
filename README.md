@@ -13,8 +13,7 @@
 ## About
 This repository is the work of the 2019 3D Modelling team.\
 We are developing the simulation and testing environment for the University of Adelaide Summer Research Internship.\
-For more detailed information, please see each model domain in the\
-Wiki: https://github.com/UofA-EEE-LAUS/3D-modelling/wiki
+For more detailed information, please see each model domain in the [Wiki](https://github.com/UofA-EEE-LAUS/3D-modelling/wiki)
 
 ## Installation 
 ### Virtual Robot Experimentation Platform (V-REP)
