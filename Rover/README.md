@@ -1,11 +1,14 @@
-
-**V-REP and MATLAB remote API control of 3 omni-wheel rover** 
+# V-REP and MATLAB remote API control of 3 omni-wheel rover
+Documentation for using the Rover V-REP/MATLAB simulation model.
 ![Rover image](images/banner.jpg)  
+
+
+
+
+## Instructions
 
 For using the **rover_script.m** provided, install V-REP and MATLAB (1-2)
 For creating your own simulation/workspace continue with steps (3-5)
-
--------------------------------INSTRUCTIONS--------------------------------
 
 1. Download and install V-REP from http://www.coppeliarobotics.com/downloads
 
