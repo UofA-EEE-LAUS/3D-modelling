@@ -5,8 +5,9 @@
 </p>
 
 # 3D-modelling
-***University of Adelaide Summer Research Internship 2019***\
 <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/University-of-Adelaide-Logo.svg/220px-University-of-Adelaide-Logo.svg.png" alt="uni logo">
+
+***University of Adelaide Summer Research Internship 2019***
 
 
 ## About
