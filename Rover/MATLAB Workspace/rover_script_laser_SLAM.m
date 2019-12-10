@@ -45,9 +45,9 @@ if (clientID>-1)
     %[returnCode]=vrep.simxSetJointTargetVelocity(clientID,MOTOR_X,TARGET_V,vrep.simx_opmode_blocking);
     
     %setting motor speeds for straight line (units in rad/s)
-    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_0,5,vrep.simx_opmode_oneshot_wait);
-    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_1,5,vrep.simx_opmode_oneshot_wait);
-    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_2,5,vrep.simx_opmode_oneshot_wait);    
+    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_0,-5,vrep.simx_opmode_oneshot_wait);
+    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_1,-5,vrep.simx_opmode_oneshot_wait);
+    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_2,-5,vrep.simx_opmode_oneshot_wait);    
     
     %read laser sensor
     [returnCode]=vrep.simxReadProximitySensor(clientID,laser_sensor,vrep.simx_opmode_oneshot_wait);
