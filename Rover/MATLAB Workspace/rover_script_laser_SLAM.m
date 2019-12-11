@@ -44,10 +44,10 @@ if (clientID>-1)
     %syntax
     %[returnCode]=vrep.simxSetJointTargetVelocity(clientID,MOTOR_X,TARGET_V,vrep.simx_opmode_blocking);
     
-    %setting motor speeds for straight line (units in rad/s)
-    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_0,-5,vrep.simx_opmode_oneshot_wait);
-    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_1,-5,vrep.simx_opmode_oneshot_wait);
-    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_2,-5,vrep.simx_opmode_oneshot_wait);    
+    %setting motor speeds for fixed rotation (units in rad/s)
+    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_0,-1,vrep.simx_opmode_oneshot_wait);
+    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_1,-1,vrep.simx_opmode_oneshot_wait);
+    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_2,-1,vrep.simx_opmode_oneshot_wait);    
     
     %read laser sensor
     [returnCode]=vrep.simxReadProximitySensor(clientID,laser_sensor,vrep.simx_opmode_oneshot_wait);
@@ -70,7 +70,7 @@ theta = 0;
 dist = 0;
 
 figure
-plotGraph = polarplot(theta,dist)  % every AnalogRead needs to be on its own Plotgraph
+plotGraph = polarscatter(theta,dist)  % every AnalogRead needs to be on its own Plotgraph
 
 thetalim([-180,180])
 
@@ -81,9 +81,9 @@ while ishandle(plotGraph) %Loop when Plot is Active will run until plot is close
          [returnCode, orientations] = vrep.simxGetObjectOrientation(clientID,laser_sensor,-1,vrep.simx_opmode_buffer);
          dist_sample = norm(detectedPoint); %distance data from laser sensor
          
-         if dist_sample<0.001
-            dist_sample = 4;
-         end
+         %if dist_sample<0.001
+         %   dist_sample = 4;
+         %end
          
          if (orientations(1) >= 0)
             theta_sample = orientations(2);

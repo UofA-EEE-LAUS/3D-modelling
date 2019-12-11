@@ -45,9 +45,9 @@ if (clientID>-1)
     %[returnCode]=vrep.simxSetJointTargetVelocity(clientID,MOTOR_X,TARGET_V,vrep.simx_opmode_blocking);
     
     %setting motor speeds for straight line (units in rad/s)
-    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_0,1,vrep.simx_opmode_oneshot_wait);
-    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_1,1,vrep.simx_opmode_oneshot_wait);
-    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_2,1,vrep.simx_opmode_oneshot_wait);    
+    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_0,-1,vrep.simx_opmode_oneshot_wait);
+    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_1,-1,vrep.simx_opmode_oneshot_wait);
+    [returnCode]=vrep.simxSetJointTargetVelocity(clientID,motor_2,-1,vrep.simx_opmode_oneshot_wait);    
     
     %read laser sensor
     [returnCode]=vrep.simxReadProximitySensor(clientID,laser_sensor,vrep.simx_opmode_oneshot_wait);
@@ -95,7 +95,7 @@ while ishandle(plotGraph) %Loop when Plot is Active will run until plot is close
 
              count = count + 1;  
 
-             theta(count) = theta_sample;    
+             theta(count) = theta_sample    
              dist(count) = dist_sample;
              set(plotGraph,'XData',theta,'YData',dist);
              %Update graph
