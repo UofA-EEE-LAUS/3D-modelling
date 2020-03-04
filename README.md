@@ -17,8 +17,8 @@ For more detailed information, please see each model domain in the [Wiki](https:
 
 ## Navigation
 The 3D modelling project component has been broken into three parts.
-* [CrazyFlie](https://github.com/UofA-EEE-LAUS/3D-modelling/tree/master/Rover)
-* [RobotArm](https://github.com/UofA-EEE-LAUS/3D-modelling/tree/master/Rover)
+* [CrazyFlie](https://github.com/UofA-EEE-LAUS/3D-modelling/tree/master/CrazyFlie)
+* [RobotArm](https://github.com/UofA-EEE-LAUS/3D-modelling/tree/master/RobotArm)
 * [Rover](https://github.com/UofA-EEE-LAUS/3D-modelling/tree/master/Rover)
 
 each part will have instructions outlined in their respective [Wiki](https://github.com/UofA-EEE-LAUS/3D-modelling/wiki) pages.
